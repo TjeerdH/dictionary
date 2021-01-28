@@ -8,13 +8,15 @@ def dictionary(word):
 	close_matches = dl.get_close_matches(word, data.keys(), cutoff=0.7)
 	if word in data:
 		print(word)
-		print(data[word])
+		for definition in data[word]:
+			print(definition)
 	elif close_matches:
 		check = input(f"Did you mean {close_matches[0]}? Enter yes or no. ")
 		if check.lower() == "y" or check.lower() == "yes":
 			word = close_matches[0]
 			print(word)
-			print(data[word])
+			for definition in data[word]:
+				print(definition)
 		elif check.lower() == "n" or check.lower() == "no":
 			print("The word is not found, please check the spelling")
 		else:
